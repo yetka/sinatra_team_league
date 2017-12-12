@@ -1,0 +1,49 @@
+<div class="jumbotron">
+  <h1 >Team: <%= @team.name() %></h1>
+  <h3>Coordinator: <%= @team.coordinator() %></h3>
+</div>
+<% if @players.any?() %>
+  <h3>List of Players:</h3>
+  <ul>
+    <% @players.each() do |player| %>
+     <li><%= player.name() %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no players assign to this team!</p>
+<% end %>
+<br>
+<h3> Add Player to your Team:</h3>
+  <form action="/players/<%= @team.id%>" method="post">
+    <label for="name">Name of the Player:</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add Player </button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<a href="/">Home page</a>

@@ -1,16 +1,18 @@
-<% if @divisions.any?() %>
-  <h1>This is a list of Divisions: </h1>
+<br>
+<% if @teams.any?() %>
+  <h1>This is a list of Teams: </h1>
   <h5>(Click on one to Update/Delete)</h5>
   <ul>
-    <% @divisions.each do |division| %>
-    <li><a href="/divisions/<%= division.id() %>/edit"><%= division.name() %></a></li>
+    <% @teams.each do |team| %>
+    <li><a href="/teams/<%= team.id() %>/edit"><%= team.name() %></a>, coordinator: <%= team.coordinator() %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no divisions yet!</p>
+  <p>There are no teams yet!</p>
 <% end %>
-
-<h1>Add New Team</h1>
+<br>
+<br>
+<h2>Add New Team</h2>
 <form action="/teams" method="post">
   <div class="form-group">
     <label class="form-label" for='name'>Assign a name to new Team:</label>
