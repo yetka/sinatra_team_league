@@ -1,0 +1,22 @@
+<% if @divisions.any?() %>
+  <h1>This is a list of Divisions: </h1>
+  <h5>(Click on one to Update/Delete)</h5>
+  <ul>
+    <% @divisions.each do |division| %>
+    <li><a href="/divisions/<%= division.id() %>/edit"><%= division.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no divisions yet!</p>
+<% end %>
+
+<h1>Add New Team</h1>
+<form action="/teams" method="post">
+  <div class="form-group">
+    <label class="form-label" for='name'>Assign a name to new Team:</label>
+    <input class="form-control" id='name' name='name' type="text">
+    <label class="form-label" for='coordinator'>Assign a Team Coordinator to it:</label>
+    <input class="form-control" id='coordinator' name='coordinator' type="text">
+    <button type="submit" class="button btn">Add Team</button>
+  </div>
+</form>
