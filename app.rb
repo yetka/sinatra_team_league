@@ -73,3 +73,23 @@ post('/players/:id') do
   @players = Player.all()
   erb(:coordinator)
 end
+
+get '/players/:id/edit' do
+  @player = Player.find(params.fetch("id").to_i())
+  erb(:players_edit)
+end
+
+patch("/player_update/:id") do
+  name = params.fetch("name")
+  @player = Player.find(params.fetch("id").to_i())
+  @player.update({:name => name})
+  @players = Player.all()
+  erb(:index)
+end
+
+delete("/player_update/:id") do
+  @player = Player.find(params.fetch("id").to_i())
+  @player.delete()
+  @players = Player.all()
+  erb(:index)
+end
