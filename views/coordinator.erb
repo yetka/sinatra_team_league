@@ -4,9 +4,10 @@
 </div>
 <% if @players.any?() %>
   <h3>List of Players:</h3>
+  <h5>(Click on a player from the list below to update it)</h5>
   <ul>
     <% @players.each() do |player| %>
-     <li><%= player.name() %> </li>
+      <li><a href="/players/<%= player.id() %>/edit"><%= player.name() %></a></li>   
     <% end %>
   </ul>
 <% else %>
